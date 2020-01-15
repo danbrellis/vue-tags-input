@@ -92,18 +92,20 @@
           </div>
           <div class="ti-actions">
             <!-- dont use v-if and v-else here -> different event calling on click?! -->
-            <i
+            <button
               v-if="!$scopedSlots['tag-actions']"
               v-show="tagsEditStatus[index]"
-              class="ti-icon-undo"
               @click="cancelEdit(index)"
-            />
-            <i
+            >
+              <i class="ti-icon-undo" />
+            </button>
+            <button
               v-if="!$scopedSlots['tag-actions']"
               v-show="!tagsEditStatus[index]"
-              class="ti-icon-close"
               @click="performDeleteTag(index)"
-            />
+            >
+              <i class="ti-icon-close" />
+            </button>
             <slot
               v-if="$scopedSlots['tag-actions']"
               name="tag-actions"
